@@ -1,9 +1,14 @@
 import Titre from "./component/titre";
 
 function App() {
-  fetch("restcountries.com/v3.1/all")
-  .then(Response=> Response.json())
-  .then(data=>console.log(data));
+  fetch("restcountries.com/v3.1/all").then(async response => {
+      try {
+       const data = await response.json()
+       console.log( data)
+     } catch(error) {      
+       console.error(error)
+     }
+    })
   
   return (
     
